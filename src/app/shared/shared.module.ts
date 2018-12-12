@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialImportsModule } from '@shared/material-imports.module';
 
 const modules: any[] = [
   CommonModule,
   FormsModule,
   ReactiveFormsModule,
+  MaterialImportsModule
 ];
 
 /* Components */

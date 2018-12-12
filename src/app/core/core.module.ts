@@ -1,18 +1,18 @@
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
-import {HttpModule} from '@angular/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {RouterModule} from '@angular/router';
 
-import {SharedModule} from '@shared/shared.module';
+import {ExtendedHttpService} from '@core/services/http.service';
+import {AuthService} from '@core/services/auth.service';
+import {LocalStorageService} from '@core/services/local-storage.service';
 
 
 const services: any[] = [
-
+  AuthService,
+  ExtendedHttpService,
+  LocalStorageService
 ];
 
 const modules: any[] = [
-  SharedModule,
   HttpClientModule,
 ];
 

@@ -1,25 +1,51 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
+import { environment } from '@env';
 import { LocalStorageService } from './local-storage.service';
 
 @Injectable()
 export class AuthService {
-  private tokenName = 'thing-it-jwt-token';
+  private API_URL = environment.api.baseUrl;
+  private AUTH_URL = environment.api.authUrl;
+  private LOCAL_URL = environment.api.localUrl;
 
-  constructor(private localStorageService: LocalStorageService) {
+  constructor(private http: HttpClient,
+              private localStorageService: LocalStorageService,
+              private router: Router) {}
 
+  public setToken(token: string): void {
+    this.localStorageService.set('token', `Bearer ${token}`);
   }
 
-  public storeToken(value: string): void {
-    this.localStorageService.set(this.tokenName, value);
+  public setExpiration(expiration: number): void {
+    this.localStorageService.set('expiration', `${expiration}`);
   }
 
   public getToken(): string {
-    const token = this.localStorageService.get(this.tokenName);
-    return token;
+    return this.localStorageService.get('token');
   }
 
-  public removeToken(): void {
-    const token = this.localStorageService.delete(this.tokenName);
+  public clearToken(): void {
+    this.localStorageService.clearStorage();
+  }
+
+  public signIn(credentials: any): Observable<any> {
+    const body = credentials;
+    return this.http.post(`${this.AUTH_URL}/auth/login`, body);
+  }
+
+  public logOut(): void {
+    this.clearToken();
+
+    this.router.navigate(['/auth', 'login']);
+  }
+
+  public isExpired(): boolean {
+    const expiration = localStorage.getItem('expiration');
+    const res = new Date() > new Date(`${expiration}`);
+    return res;
   }
 }

@@ -1,0 +1,16 @@
+.login-wrapper {
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    mat-form-field {
+        width: 100%;
+    }
+
+    .signInButton {
+        display: block;
+        margin: 0 auto;
+    }
+}

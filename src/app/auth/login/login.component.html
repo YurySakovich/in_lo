@@ -1,4 +1,40 @@
-<p>
-  login works!
-</p>
-asdf
+<div class="login-wrapper" 
+    fxLayoutAlign="center center" 
+    fxLayout="column">
+  <mat-card fxLayout="column">
+    <mat-card-title fxLayoutAlign="center center">logo</mat-card-title>
+
+    <mat-card-content>
+      <form [formGroup]="loginForm" 
+            (submit)="onSubmit()" 
+            fxLayout="column">
+        <mat-form-field>
+          <input matInput  
+                 placeholder="Client" 
+                 formControlName="client">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput 
+                 placeholder="User name" 
+                 formControlName="username">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput 
+                 placeholder="Password" 
+                 type="password" 
+                 formControlName="password">
+        </mat-form-field>
+
+        <button
+          mat-flat-button
+          type="submit"
+          color="primary"
+          class="signInButton">SIGN IN</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+

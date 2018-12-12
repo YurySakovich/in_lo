@@ -3,7 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api: {
+    localUrl: 'http://localhost:4200',
+    baseUrl: 'https://q77.inlogic.ca/api/v11',
+    authUrl: 'https://q77.inlogic.ca',
+  },
+  buildInfo: {
+    buildNumber: 999,
+    buildDate: '99999',
+    buildInstance: 'XX',
+    buildHash: 'YYYYYY',
+    buildTag: 'YYYY',
+    buildBranch: 'ZZZZZZ',
+  },
 };
 
 /*
