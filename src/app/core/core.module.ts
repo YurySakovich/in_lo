@@ -1,14 +1,24 @@
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 
-import {ExtendedHttpService} from '@core/services/http.service';
+/**Services */
 import {AuthService} from '@core/services/auth.service';
 import {LocalStorageService} from '@core/services/local-storage.service';
 
+/*guards*/
+import { LoginGuard } from '@core/guards/login.guard';
+import { AuthGuard } from '@core/guards/auth.guard';
+
+/*interceptors*/
+import {AuthInterceptor} from '@core/interceptors/auth-interceptor';
+
+const guards = [
+  AuthGuard,
+  LoginGuard
+];
 
 const services: any[] = [
   AuthService,
-  ExtendedHttpService,
   LocalStorageService
 ];
 
@@ -23,7 +33,13 @@ const modules: any[] = [
   declarations: [],
   exports: [],
   providers: [
-    ...services
+    ...services,
+    ...guards,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
   ]
 })
 export class CoreModule {

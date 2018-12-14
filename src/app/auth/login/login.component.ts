@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loginForm = this.initForm();
   }
-  
+
   private initForm(): FormGroup {
     return this.fb.group({
       client: ['demo01', Validators.required],
@@ -39,12 +39,12 @@ export class LoginComponent implements OnInit {
   public onSubmit(): void {
     this.authService.signIn(this.loginForm.value)
       .subscribe((authData: AuthData) => {
-        console.log(authData, 'authData')
+        console.log(authData, 'authData');
         this.authService.setToken(authData.token);
         this.authService.setExpiration(authData.expiration);
 
         // TODO add condition
-        // this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard']);
       },
       (err) => {
         console.log('err  ', err);
