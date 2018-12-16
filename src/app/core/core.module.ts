@@ -4,6 +4,8 @@ import {NgModule} from '@angular/core';
 /**Services */
 import {AuthService} from '@core/services/auth.service';
 import {LocalStorageService} from '@core/services/local-storage.service';
+import {UserService} from '@core/services/user.service';
+import {ApiService} from '@core/services/api.service';
 
 /*guards*/
 import { LoginGuard } from '@core/guards/login.guard';
@@ -19,7 +21,9 @@ const guards = [
 
 const services: any[] = [
   AuthService,
-  LocalStorageService
+  LocalStorageService,
+  UserService,
+  ApiService
 ];
 
 const modules: any[] = [

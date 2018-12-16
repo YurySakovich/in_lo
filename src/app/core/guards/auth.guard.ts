@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 import { AuthService } from '@core/services/auth.service';
+import { LocalStorageService } from '@core/services/local-storage.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild {
 
   constructor(private authService: AuthService,
-    private router: Router) {}
+              private localStorageService: LocalStorageService) {}
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const token = this.authService.getToken();
+    const token = this.localStorageService.get('token');
 
     if (token && !this.authService.isExpired()) {
       return true;
