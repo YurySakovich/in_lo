@@ -1,0 +1,31 @@
+@import './../../../assets/styles/colors.scss';
+@import './../../../styles.scss';
+
+.bottom-section {
+    // padding: 0 20px;
+    background: $mainDashboardBackgroundColor;
+    height: calc(100% - 51px);
+    ::ng-deep mat-tab-header {
+        border: none;
+    }
+
+    ::ng-deep .mat-ink-bar {
+        background-color: $matLinkColor;
+    }
+
+    ::ng-deep .mat-tab-label {
+        height: 36px !important;
+    }
+
+    ::ng-deep .mat-tab-header {
+        background: $white;
+    }
+
+    ::ng-deep .mat-tab-body-content {
+        @include bottom-shadow();
+    }
+
+    .mat-tab-content {
+        margin: 0 55px;
+    }
+}

@@ -2,8 +2,12 @@ import { NgModule } from '@angular/core';
 
 /* Modules */
 import { SharedModule } from '@shared/shared.module';
+
+/* Components */
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardRoutingModule } from './dashboard.routes';
+import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
+import { CompensationPageComponent } from './compensation-page/compensation-page.component';
 
 const modules: any[] = [
   SharedModule,
@@ -12,6 +16,8 @@ const modules: any[] = [
 
 /* Components */
 const components: any[] = [
+  DashboardPageComponent,
+  CompensationPageComponent,
   DashboardComponent
 ];
 

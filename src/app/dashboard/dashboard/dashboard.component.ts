@@ -5,6 +5,9 @@ import {
   AuthFeatureStoreActions
 } from '../../root-store';
 
+import { UserService } from '@core/services/user.service';
+
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -12,9 +15,14 @@ import {
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private store$: Store<RootStoreState.State>) { }
+  constructor(private store$: Store<RootStoreState.State>,
+              private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.getUserInfo()
+      .subscribe((user) => {
+        console.log(user);
+      })
   }
   
   logout() {
