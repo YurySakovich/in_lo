@@ -3,17 +3,23 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { SvgModule } from '@shared/svg/svg.module';
 import { MaterialImportsModule } from '@shared/material-imports.module';
+
+import { HeaderComponent } from './components/header/header.component';
 
 const modules: any[] = [
   CommonModule,
   FormsModule,
   ReactiveFormsModule,
-  MaterialImportsModule
+  MaterialImportsModule,
+  SvgModule
 ];
 
 /* Components */
 const components: any[] = [
+  HeaderComponent
 ];
 
 /* Directives */
@@ -32,7 +38,7 @@ const pipes: any[] = [
   declarations: [
     ...components,
     ...directives,
-    ...pipes
+    ...pipes,
   ],
   providers: [
   ],
