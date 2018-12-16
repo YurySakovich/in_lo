@@ -1,0 +1,23 @@
+<header>
+  <div class="top-hedaer-section">
+    <div class="logo">
+      <app-logo-svg></app-logo-svg>
+    </div>
+    <div class="user-info">
+      <div class="user-account-section-info">
+        <div class="user-name">Brian Brandsgard</div>
+        <div class="user-account">hugh@inlogic.ca</div>
+      </div>
+      <div class="user-avatar">
+        <img [src]="defaultUserImageUrl" alt="">
+      </div>
+      <nav>
+        <app-bottom-arrow-svg class="bottom-arrow-svg" [matMenuTriggerFor]="menu"></app-bottom-arrow-svg>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item>Item 2</button>
+        </mat-menu>
+      </nav>
+    </div>
+  </div>
+</header>
