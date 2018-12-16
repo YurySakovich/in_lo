@@ -2,16 +2,20 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
-import { Observable, of as observableOf, of } from 'rxjs';
-import { catchError, map, tap, switchMap } from 'rxjs/operators';
-import { AuthService } from '@core/services/auth.service';
 import * as featureActions from './actions';
+
+import { Observable, of as observableOf, of } from 'rxjs';
+import { catchError, map, tap, switchMap,flatMap } from 'rxjs/operators';
+
+import { AuthService } from '@core/services/auth.service';
+import { UserService } from '@core/services/user.service';
 import { User } from '../../models';
 
 @Injectable()
 export class AuthFeatureStoreEffects {
   constructor(private authService: AuthService,
-    private actions$: Actions) { }
+              private userService: UserService,
+              private actions$: Actions) { }
 
   @Effect()
   loginRequestEffect$: Observable<Action> = this.actions$.pipe(
@@ -22,6 +26,7 @@ export class AuthFeatureStoreEffects {
       this.authService
         .signIn({ client: action.payload.client, username: action.payload.username, password: action.payload.password })
         .pipe(
+          // flatMap(() => this.userService.getUserInfo()),
           map(
             (user) => {
               return new featureActions.LoginSuccessAction({
