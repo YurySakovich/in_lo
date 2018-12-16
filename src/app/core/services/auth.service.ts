@@ -34,6 +34,7 @@ export class AuthService {
 
   public signIn(credentials: any): Observable<any> {
     const body = credentials;
+
     return this.http.post(`${this.AUTH_URL}/auth/login`, body);
   }
 
@@ -46,6 +47,13 @@ export class AuthService {
   public isExpired(): boolean {
     const expiration = localStorage.getItem('expiration');
     const res = new Date() > new Date(`${expiration}`);
+
     return res;
+  }
+
+  public handleSignIn(user: any) {
+    this.setExpiration(user.token);
+    this.setToken(user.expiration);
+    this.router.navigate(['/dashboard']);
   }
 }

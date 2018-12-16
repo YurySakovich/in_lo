@@ -6,10 +6,12 @@ import { SharedModule } from '@shared/shared.module';
 import { CoreModule } from '@core/core.module';
 import { AppRoutingModule } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RootStoreModule } from './root-store';
 
 const modules: any[] = [
   SharedModule,
   CoreModule,
+  RootStoreModule
 ];
 
 @NgModule({

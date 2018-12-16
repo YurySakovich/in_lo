@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '@core/services/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { environment } from '@env';
 import { emailValidator } from '@shared/constants/validators';
+import { Store } from '@ngrx/store';
+import { User } from '../../models';
+import {
+  RootStoreState,
+  AuthFeatureStoreActions
+} from '../../root-store';
+import { Observable } from 'rxjs';
 
 export interface AuthData {
   token: string;
@@ -18,11 +22,11 @@ export interface AuthData {
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   public buildInfo;
+  AuthFeatureItems$: Observable<User[]>;
 
   constructor(
-    private fb: FormBuilder,
-    private authService: AuthService,
-    private router: Router) { }
+    private store$: Store<RootStoreState.State>,
+    private fb: FormBuilder) { }
 
   ngOnInit() {
     this.loginForm = this.initForm();
@@ -37,18 +41,8 @@ export class LoginComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    this.authService.signIn(this.loginForm.value)
-      .subscribe((authData: AuthData) => {
-        console.log(authData, 'authData');
-        this.authService.setToken(authData.token);
-        this.authService.setExpiration(authData.expiration);
-
-        // TODO add condition
-        this.router.navigate(['/dashboard']);
-      },
-      (err) => {
-        console.log('err  ', err);
-      }
+    this.store$.dispatch(
+      new AuthFeatureStoreActions.LoginRequestAction(this.loginForm.value)
     );
   }
 
