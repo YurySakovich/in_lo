@@ -1,11 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import {
-  RootStoreState,
-  AuthFeatureStoreActions
-} from '../../root-store';
+import {Component, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {RootStoreState, AuthFeatureStoreActions} from '../../root-store';
 
-import { UserService } from '@core/services/user.service';
+import {UserService} from '@core/services/user.service';
 
 
 @Component({
@@ -30,4 +27,5 @@ export class DashboardComponent implements OnInit {
       new AuthFeatureStoreActions.LogoutRequestAction()
     );
   }
+
 }

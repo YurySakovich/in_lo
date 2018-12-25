@@ -26,6 +26,16 @@
     }
 
     .mat-tab-content {
-        margin: 0 55px;
+        height: calc(100vh - 87px);
+        overflow: scroll;
+    }
+    
+    .page-wrapper {
+        // padding-top: 20px;
+        // margin: 0 55px;
     }
 }
+
+// ::ng-deep mat-tab-body {
+//     overflow: scroll !important;
+// }

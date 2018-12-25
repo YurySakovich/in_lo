@@ -1,0 +1,42 @@
+@import './../../../assets/styles/colors.scss';
+@import './../../../styles.scss';
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.compensation-page-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.left-menu {
+    width: 18%;
+    min-width: 160px;
+    height: 100vh;
+    border-right: 1px solid $menuBorderColor;
+    box-sizing: border-box;
+}
+
+.main-page {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background-color: $menuHeaderBackgroundColor;
+    line-height: 45px;
+    font-size: 16px;
+    font-weight: bold;
+
+    span {
+        margin-left: 15px;
+    }
+}

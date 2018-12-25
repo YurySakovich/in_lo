@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 
 /* Modules */
 import { SharedModule } from '@shared/shared.module';
+import { DashboardRoutingModule } from './dashboard.routes';
 
 /* Components */
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { DashboardRoutingModule } from './dashboard.routes';
 import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
 import { CompensationPageComponent } from './compensation-page/compensation-page.component';
+import { PayCardComponent } from './dashboard-sub-pages/pay-card/pay-card.component';
+import { SubPagesWrapperComponent } from './dashboard-sub-pages/sub-pages-wrapper/sub-pages-wrapper.component';
 
 const modules: any[] = [
   SharedModule,
@@ -38,6 +40,8 @@ const pipes: any[] = [
     ...components,
     ...directives,
     ...pipes,
+    PayCardComponent,
+    SubPagesWrapperComponent,
   ],
   providers: [
   ],

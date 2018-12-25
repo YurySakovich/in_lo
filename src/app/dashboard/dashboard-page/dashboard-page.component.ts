@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardService } from '@core/services'
 
 @Component({
   selector: 'app-dashboard-page',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardPageComponent implements OnInit {
 
-  constructor() { }
+  blocks: any[] = [];
+
+  constructor(private dashboardService: DashboardService) { }
 
   ngOnInit() {
+    this.dashboardService.getCardDara()
+      .subscribe((blocks: any[]) => {
+        this.blocks = blocks;
+      })
+  }
+
+  getClass(number) {
+    if (number === 1) return 'first block'
+    if (number === 2) return 'second block'
+    if (number === 3) return 'third block'
   }
 
 }
