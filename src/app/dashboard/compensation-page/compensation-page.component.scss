@@ -18,7 +18,7 @@
 .left-menu {
     width: 18%;
     min-width: 160px;
-    height: 100vh;
+    min-height: 100vh;
     border-right: 1px solid $menuBorderColor;
     box-sizing: border-box;
 }
@@ -38,5 +38,23 @@ header {
 
     span {
         margin-left: 15px;
+    }
+}
+
+::ng-deep .mat-ink-bar {
+    background-color: $matLinkColor;
+}
+
+::ng-deep .mat-tab-label {
+    height: 36px !important;
+}
+
+::ng-deep .mat-tab-header {
+    background: $white;
+}
+
+.main-page {
+    ::ng-deep .mat-tab-body-content {
+        box-shadow: none !important;
     }
 }
