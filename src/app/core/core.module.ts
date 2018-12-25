@@ -6,6 +6,7 @@ import {AuthService} from '@core/services/auth.service';
 import {LocalStorageService} from '@core/services/local-storage.service';
 import {UserService} from '@core/services/user.service';
 import {ApiService} from '@core/services/api.service';
+import {DashboardService} from '@core/services/dashboard.service';
 
 /*guards*/
 import { LoginGuard } from '@core/guards/login.guard';
@@ -23,7 +24,8 @@ const services: any[] = [
   AuthService,
   LocalStorageService,
   UserService,
-  ApiService
+  ApiService,
+  DashboardService
 ];
 
 const modules: any[] = [

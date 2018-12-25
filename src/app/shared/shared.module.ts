@@ -8,6 +8,7 @@ import { SvgModule } from '@shared/svg/svg.module';
 import { MaterialImportsModule } from '@shared/material-imports.module';
 
 import { HeaderComponent } from './components/header/header.component';
+import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 
 const modules: any[] = [
   CommonModule,
@@ -19,7 +20,8 @@ const modules: any[] = [
 
 /* Components */
 const components: any[] = [
-  HeaderComponent
+  HeaderComponent,
+  NavMenuComponent
 ];
 
 /* Directives */
