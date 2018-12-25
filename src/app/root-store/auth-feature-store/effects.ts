@@ -1,15 +1,15 @@
 
-import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType } from '@ngrx/effects';
-import { Action } from '@ngrx/store';
+import {Injectable} from '@angular/core';
+import {Actions, Effect, ofType} from '@ngrx/effects';
+import {Action} from '@ngrx/store';
 import * as featureActions from './actions';
 
-import { Observable, of as observableOf, of } from 'rxjs';
-import { catchError, map, tap, switchMap,flatMap } from 'rxjs/operators';
+import {Observable, of as observableOf, of} from 'rxjs';
+import {catchError, map, tap, switchMap, flatMap} from 'rxjs/operators';
 
-import { AuthService } from '@core/services/auth.service';
-import { UserService } from '@core/services/user.service';
-import { User } from '../../models';
+import {AuthService} from '@core/services/auth.service';
+import {UserService} from '@core/services/user.service';
+import {User} from '../../models';
 
 @Injectable()
 export class AuthFeatureStoreEffects {
