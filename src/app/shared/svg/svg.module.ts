@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 /* Components */
 import { LogoSvgComponent } from './logo-svg/logo-svg.component';
 import { BottomArrowSvgComponent } from './bottom-arrow-svg/bottom-arrow-svg.component';
+import { UserSvgComponent } from './user-svg/user-svg.component';
 
 const modules: any[] = [
   CommonModule
@@ -12,6 +13,7 @@ const modules: any[] = [
 
 const components: any[] = [
     BottomArrowSvgComponent,
+    UserSvgComponent,
     LogoSvgComponent
 ];
 
