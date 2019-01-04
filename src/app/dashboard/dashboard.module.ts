@@ -20,7 +20,9 @@ const modules: any[] = [
 const components: any[] = [
   DashboardPageComponent,
   CompensationPageComponent,
-  DashboardComponent
+  DashboardComponent,
+  PayCardComponent,
+  SubPagesWrapperComponent,
 ];
 
 /* Directives */
@@ -40,8 +42,7 @@ const pipes: any[] = [
     ...components,
     ...directives,
     ...pipes,
-    PayCardComponent,
-    SubPagesWrapperComponent,
+
   ],
   providers: [
   ],

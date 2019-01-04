@@ -9,6 +9,8 @@ import { MaterialImportsModule } from '@shared/material-imports.module';
 
 import { HeaderComponent } from './components/header/header.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
+import { DonutChartComponent } from './components/charts/donut-chart/donut-chart.component';
+import { GroupBarChartComponent } from './components/charts/group-bar-chart/group-bar-chart.component';
 
 const modules: any[] = [
   CommonModule,
@@ -21,7 +23,9 @@ const modules: any[] = [
 /* Components */
 const components: any[] = [
   HeaderComponent,
-  NavMenuComponent
+  NavMenuComponent,
+  GroupBarChartComponent,
+  DonutChartComponent
 ];
 
 /* Directives */

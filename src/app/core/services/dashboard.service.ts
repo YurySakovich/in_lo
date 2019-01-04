@@ -14,6 +14,6 @@ export class DashboardService {
     constructor(private apiService: ApiService) { }
 
     getCardDara(): Observable<any> {
-        return of([1,1])
+        return of([1,1,1])
     }
 }

@@ -1,0 +1,28 @@
+
+.arc text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.arc path {
+  stroke: #fff;
+}
+
+.chart-wrapper {
+  height: 100%;
+
+  .donut-svg {
+    height: 2100px;
+    width: 200px;
+  }
+
+  .legend {
+    width: 100px;
+  }
+}
+
+.chart-wrapper {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+}
