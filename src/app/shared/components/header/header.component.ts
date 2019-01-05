@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import {RootStoreState, AuthFeatureStoreActions} from '../../../root-store';
+
+import {Store} from '@ngrx/store';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,9 +12,16 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   public defaultUserImageUrl = 'assets/images/default-avatar.jpg';
   public matTabColor = '#448AFF';
-  constructor() { }
+  
+  constructor(private store$: Store<RootStoreState.State>) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.store$.dispatch(
+      new AuthFeatureStoreActions.LogoutRequestAction()
+    );
   }
 
 }

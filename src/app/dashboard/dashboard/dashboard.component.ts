@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {RootStoreState, AuthFeatureStoreActions} from '../../root-store';
 
+import {Store} from '@ngrx/store';
+
+import {RootStoreState, AuthFeatureStoreActions} from '../../root-store';
 import {UserService} from '@core/services/user.service';
 
 
