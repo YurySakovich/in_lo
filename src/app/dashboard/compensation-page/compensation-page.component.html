@@ -2,12 +2,25 @@
   <div class="left-menu"><app-nav-menu></app-nav-menu></div>
 
   <div class="main-page">
-    <header><span>Brian Brandsgard</span></header>
+    <header>
+      <span>Brian Brandsgard</span>
+      <div class="search">
+        Search for a user
+        <app-left-arrow-svg></app-left-arrow-svg>
+      </div>
+    </header>
 
-    <mat-tab-group #tabGroup>
-      <mat-tab label="First">Content 1</mat-tab>
-      <mat-tab label="Second">Content 2</mat-tab>
-      <mat-tab label="Third">Content 3</mat-tab>
+    <mat-tab-group>
+      <mat-tab label="Package">
+        <app-payee-package
+          *ngIf="teamPayeeData?.portalPackage"
+          [payeeData]="teamPayeeData.portalPackage"
+        ></app-payee-package>
+      </mat-tab>
+
+      <mat-tab label="Payment">Payment</mat-tab>
+
+      <mat-tab label="Profile">Profile</mat-tab>
     </mat-tab-group>
   </div>
 </div>

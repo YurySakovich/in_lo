@@ -1,0 +1,30 @@
+<div class="payeeContainer">
+  <div class="payeeTable" *ngFor="let payeeTable of payeeData">
+    <div class="tableLabel">
+      {{ payeeTable.name }}
+      <span>{{ getLabel(payeeTable) }}</span>
+    </div>
+
+    <mat-table [dataSource]="payeeTable.compensation" class="mat-elevation-z8">
+      <ng-container *ngFor="let tableColumn of displayedColumns">
+        <ng-container [matColumnDef]="tableColumn">
+          <mat-header-cell *matHeaderCellDef class="capitalize">{{ tableColumn }}</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <div *ngIf="tableColumn === 'name'" class="svgContainer">
+              <ng-container *ngIf="element.measurement; else planSvg">
+                <app-measurement-svg></app-measurement-svg>
+              </ng-container>
+            </div>
+
+            {{ element[tableColumn] }}
+          </mat-cell>
+        </ng-container>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </div>
+</div>
+
+<ng-template #planSvg><app-plan-svg></app-plan-svg></ng-template>

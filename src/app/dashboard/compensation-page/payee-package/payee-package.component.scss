@@ -1,0 +1,53 @@
+@import './../../../../assets/styles/colors.scss';
+@import './../../../../styles.scss';
+
+.payeeContainer {
+  margin: 14px;
+
+  .tableLabel {
+    font-size: 13px;
+    margin-bottom: 8px;
+    font-weight: bold;
+
+    span {
+      color: $dateTableLabelColor;
+      font-family: 'Roboto';
+      font-weight: normal;
+      mix-blend-mode: normal;
+      text-transform: uppercase;
+      margin-left: 4px;
+    }
+  }
+
+  .mat-table {
+    box-shadow: none;
+    border: 1px solid $tableBorderColor;
+    margin-bottom: 20px;
+
+    mat-header-cell {
+      padding-left: 13px;
+      font-weight: bold !important;
+      font-size: 13px !important;
+      color: $tableHeaderColor !important;
+    }
+
+    mat-cell {
+      padding-left: 13px;
+      font-size: 13px !important;
+    }
+
+    mat-header-cell:first-child {
+      padding-left: 13px;
+      border-right: 1px solid $tableBorderColor;
+    }
+
+    mat-cell:first-child {
+      padding-left: 13px;
+      border-right: 1px solid $tableBorderColor;
+    }
+
+    .svgContainer {
+      margin-right: 5px;
+    }
+  }
+}
