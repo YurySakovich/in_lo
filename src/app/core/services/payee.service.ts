@@ -1,19 +1,19 @@
 import {Injectable} from '@angular/core';
 import {environment} from '@env';
 
-import {of, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 
 import {ApiService} from './api.service';
 
 @Injectable()
-export class DashboardService {
+export class PayeeService {
   private API_URL = environment.api.baseUrl;
   private AUTH_URL = environment.api.authUrl;
   private LOCAL_URL = environment.api.localUrl;
 
   constructor(private apiService: ApiService) {}
 
-  getCardDara(): Observable<any> {
-    return of([]);
+  getPortalTeamPayee(payeeId: number): Observable<any> {
+    return this.apiService.get(`${this.API_URL}/portal/team/payee/${payeeId}`);
   }
 }

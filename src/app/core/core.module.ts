@@ -7,35 +7,23 @@ import {LocalStorageService} from '@core/services/local-storage.service';
 import {UserService} from '@core/services/user.service';
 import {ApiService} from '@core/services/api.service';
 import {DashboardService} from '@core/services/dashboard.service';
+import {PayeeService} from '@core/services';
 
 /*guards*/
-import { LoginGuard } from '@core/guards/login.guard';
-import { AuthGuard } from '@core/guards/auth.guard';
+import {LoginGuard} from '@core/guards/login.guard';
+import {AuthGuard} from '@core/guards/auth.guard';
 
 /*interceptors*/
 import {AuthInterceptor} from '@core/interceptors/auth-interceptor';
 
-const guards = [
-  AuthGuard,
-  LoginGuard
-];
+const guards = [AuthGuard, LoginGuard];
 
-const services: any[] = [
-  AuthService,
-  LocalStorageService,
-  UserService,
-  ApiService,
-  DashboardService
-];
+const services: any[] = [AuthService, LocalStorageService, UserService, ApiService, DashboardService, PayeeService];
 
-const modules: any[] = [
-  HttpClientModule,
-];
+const modules: any[] = [HttpClientModule];
 
 @NgModule({
-  imports: [
-    ...modules
-  ],
+  imports: [...modules],
   declarations: [],
   exports: [],
   providers: [
@@ -44,9 +32,8 @@ const modules: any[] = [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi: true
+      multi: true,
     },
-  ]
+  ],
 })
-export class CoreModule {
-}
+export class CoreModule {}
