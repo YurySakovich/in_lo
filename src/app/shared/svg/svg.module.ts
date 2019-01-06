@@ -8,14 +8,22 @@ import {BottomArrowSvgComponent} from './bottom-arrow-svg/bottom-arrow-svg.compo
 import {UserSvgComponent} from './user-svg/user-svg.component';
 import {MeasurementSvgComponent} from './measurement-svg/measurement-svg.component';
 import {PlanSvgComponent} from './plan-svg/plan-svg.component';
+import {LeftArrowSvgComponent} from './left-arrow-svg/left-arrow-svg.component';
 
 const modules: any[] = [CommonModule];
 
-const components: any[] = [BottomArrowSvgComponent, UserSvgComponent, LogoSvgComponent];
+const components: any[] = [
+  BottomArrowSvgComponent,
+  UserSvgComponent,
+  LogoSvgComponent,
+  MeasurementSvgComponent,
+  PlanSvgComponent,
+  LeftArrowSvgComponent,
+];
 
 @NgModule({
   imports: [...modules],
-  declarations: [...components, MeasurementSvgComponent, PlanSvgComponent],
+  declarations: [...components],
   providers: [],
   exports: [...components],
   entryComponents: [...components],
