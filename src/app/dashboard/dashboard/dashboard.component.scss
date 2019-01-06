@@ -2,40 +2,41 @@
 @import './../../../styles.scss';
 
 .bottom-section {
-    // padding: 0 20px;
-    background: $mainDashboardBackgroundColor;
-    height: calc(100% - 51px);
-    ::ng-deep mat-tab-header {
-        border: none;
-    }
+  background: $mainDashboardBackgroundColor;
+  height: calc(100% - 51px);
 
-    ::ng-deep .mat-ink-bar {
-        background-color: $matLinkColor;
-    }
-
-    ::ng-deep .mat-tab-label {
-        height: 36px !important;
-    }
-
-    ::ng-deep .mat-tab-header {
-        background: $white;
-    }
-
-    ::ng-deep .mat-tab-body-content {
-        @include bottom-shadow();
-    }
-
-    .mat-tab-content {
-        height: calc(100vh - 87px);
-        overflow-y: scroll;
-    }
-    
-    .page-wrapper {
-        // padding-top: 20px;
-        // margin: 0 55px;
-    }
+  .mat-tab-content {
+    height: calc(100vh - 87px);
+    overflow-y: auto;
+  }
 }
 
-// ::ng-deep mat-tab-body {
-//     overflow: scroll !important;
-// }
+/*styles for mat-tabs*/
+.bottom-section {
+  ::ng-deep .mat-ink-bar {
+    display: none;
+  }
+
+  ::ng-deep mat-tab-header {
+    border: none;
+  }
+
+  ::ng-deep .mat-tab-label {
+    height: 36px !important;
+    opacity: 1 !important;
+    font-size: 13px !important;
+  }
+
+  ::ng-deep .mat-tab-label-active {
+    border-bottom: 2px solid $matLinkColor;
+    background: $ligthBlueBackgroundColor;
+  }
+
+  ::ng-deep .mat-tab-header {
+    background: $white;
+  }
+
+  ::ng-deep .mat-tab-body-content {
+    @include bottom-shadow();
+  }
+}
